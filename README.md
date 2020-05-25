@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #
 
+=======
+>>>>>>> 346cf249622e5570d1029d88716301c6a1f6e927
 > A Vue.js project
 
 ## Build Setup
