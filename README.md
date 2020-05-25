@@ -1,4 +1,5 @@
-# y
+<<<<<<< HEAD
+#
 
 > A Vue.js project
 
@@ -19,3 +20,6 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+# vue-shopping-list
+>>>>>>> dd35b0f6fc8647cc88b07c8d93125f3a0102bf16

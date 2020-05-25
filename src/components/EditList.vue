@@ -96,6 +96,7 @@ export default {
   margin-top: 60px;
   padding: 20px;
   max-width: 500px;
+  display: block !important;
 }
 .edit-list h2 {
   color: #fb8c00;
