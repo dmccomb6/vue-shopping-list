@@ -1,0 +1,29 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Java 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    
+    - name: Create Black Duck Policy
+      uses: blackducksoftware/create-policy-action@v0.0.1
+      with:
+        blackduck-url: https://saastest.app.blackduck.com
+        blackduck-api-token: Y2E4NWQ0NTMtZmVkZi00NzcyLThlZWQtM2U3YzVjMWYzZDVhOjViYTMxNmYzLWI1ZmQtNDkzMi1iNjIwLWM2YjJmOTdlMTc2Zg==
+        policy-name: 'test_actions'
+        no-fail-if-policy-exists: true
+    - name: Run Synopsys Detect
+      uses: synopsys-sig/detect-action@v0.3.2
+      env:
+        SPRING_APPLICATION_JSON: '{"detect.detector.search.depth":"10"}'
+      with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          detect-version: 8.6.0
+          blackduck-url: https://saastest.app.blackduck.com
+          blackduck-api-token: Y2E4NWQ0NTMtZmVkZi00NzcyLThlZWQtM2U3YzVjMWYzZDVhOjViYTMxNmYzLWI1ZmQtNDkzMi1iNjIwLWM2YjJmOTdlMTc2Zg==
