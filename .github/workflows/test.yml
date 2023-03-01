@@ -18,7 +18,9 @@ jobs:
         blackduck-api-token: Y2E4NWQ0NTMtZmVkZi00NzcyLThlZWQtM2U3YzVjMWYzZDVhOjViYTMxNmYzLWI1ZmQtNDkzMi1iNjIwLWM2YjJmOTdlMTc2Zg==
         policy-name: 'test_actions'
         no-fail-if-policy-exists: true
-        detect-blackduck-rapid-compare-mode: BOM_COMPARE
+        args: --detect.project.name="npmTest" 
+        
+  
         
     - name: Run Synopsys Detect
       uses: synopsys-sig/detect-action@v0.3.2
