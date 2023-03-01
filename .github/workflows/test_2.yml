@@ -1,0 +1,12 @@
+- name: Black Duck Scan
+  uses: synopsys-sig/detect-action@v0.3.0
+  env:
+    DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
+    DETECT_PROJECT_VERSION_NAME: ${{ github.ref_name }}
+    DETECT_CODE_LOCATION_NAME: ${{ github.event.repository.name }}-${{ github.ref_name }}
+  with:
+    blackduck-url: ${{ secrets.BLACKDUCK_URL }}
+    blackduck-api-token: ${{ secrets.BLACKDUCK_API_TOKEN }}
+    detect-version: 8.6.0
+    scan-mode: RAPID
+    github-token: ${{ secrets.GITHUB_TOKEN }}
