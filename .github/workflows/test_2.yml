@@ -32,3 +32,4 @@ jobs:
         detect-version: 8.6.0
         scan-mode: RAPID
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        args: --detect.blackduck.rapid.compare.mode=BOM_COMPARE
