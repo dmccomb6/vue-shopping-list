@@ -1,4 +1,4 @@
-- name: Black Duck Scan
+name: Black Duck Scan
   uses: synopsys-sig/detect-action@v0.3.0
   env:
     DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
