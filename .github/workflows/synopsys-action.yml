@@ -1,35 +1,36 @@
-name: Synopsys Action
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+name: Synopsys Security Testing
+
 on:
-  workflow_dispatch:
+  push:
+    # At this time, it is recommended to run Polaris only on pushes to main branches
+    # Pull request analysis will be supported by Polaris in the future
+    branches: [ "master" ]
+
   pull_request:
-    branches:
-    - main
-## Please change the project name to your Blackdcuk project here for scan using INTELLIGENT mode 
+    branches: [ "master" ]
+
 env:
      DETECT_PROJECT_NAME: vue-shopping
-     DETECT_PROJECT_VERSION_NAME: actions 
-jobs:
-  synopsys-action:
-  runs-on: [ ubuntu-latest ]
-    steps:
-     - uses: actions/checkout@v2
-     - name: Set up Java 11
-       uses: actions/setup-java@v2
-       with:
-        java-version: '11'
-        distribution: 'adopt'
-     - name: Setup Maven Action
-       uses: s4u/setup-maven-action@v1.5.1
-       with:
-         java-version: 11   
-     - name: Black Duck Scan
-       uses: synopsys-sig/synopsys-action@v1.8.0
+     DETECT_PROJECT_VERSION_NAME: actions  
 
-       with:
-          blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Synopsys Action
+        uses: synopsys-sig/synopsys-action@v1.8.0
+        with:
+          #------------------------------------------BLACKDUCK----------------------------------------
           blackduck_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
-          blackduck_fixpr_enabled: true
-          blackduck_prComment_enabled: true
-          blackduck_automation_fixpr: true
-          blackduck_automation_prcomment: true
-          
+          blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+
+
+
