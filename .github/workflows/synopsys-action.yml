@@ -34,6 +34,11 @@ jobs:
           #------------------------------------------BLACKDUCK----------------------------------------
           blackduck_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
           blackduck_url: ${{ secrets.BLACKDUCK_URL }}
+          blackduck_fixpr_enabled: true
+          blackduck_prComment_enabled: true
+          blackduck_automation_fixpr: true
+          blackduck_automation_prcomment: true
+          
 
 
 
