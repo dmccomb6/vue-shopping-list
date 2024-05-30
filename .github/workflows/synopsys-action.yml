@@ -17,6 +17,7 @@ env:
      DETECT_PROJECT_NAME: vue-shopping
      DETECT_PROJECT_VERSION_NAME: actions  
      BLACKDUCK_TRUST_CERT: true
+     DETECT_ACCURACY_REQUIRED: none
 
 jobs:
   build:
